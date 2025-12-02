@@ -31,6 +31,10 @@ COPY . .
 # Set permissions
 RUN chmod -R 755 storage bootstrap/cache
 
+# Copy start script
+COPY start.sh /usr/local/bin/start.sh
+RUN chmod +x /usr/local/bin/start.sh
+
 # Cache configuration (only if .env exists, will be set by Railway)
 RUN php artisan config:cache || true && \
     php artisan route:cache || true && \
@@ -40,5 +44,5 @@ RUN php artisan config:cache || true && \
 EXPOSE $PORT
 
 # Start command
-CMD php artisan serve --host=0.0.0.0 --port=$PORT
+CMD ["/usr/local/bin/start.sh"]
 
