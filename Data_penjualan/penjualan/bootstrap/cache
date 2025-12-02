@@ -1,0 +1,1 @@
+The directory `bootstrap/cache` is typically used to store cached files for performance optimization in a Laravel application. However, it does not contain specific files by default. Therefore, this directory is intentionally left blank.

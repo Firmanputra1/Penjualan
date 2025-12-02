@@ -1,0 +1,23 @@
+The directory `/penjualan/penjualan/tests/Feature` is intended for feature tests in your Laravel application. Since you haven't specified any particular tests to include, I will create a basic example of a feature test file.
+
+Here is the content for a sample feature test file named `ExampleTest.php`:
+
+<?php
+
+namespace Tests\Feature;
+
+use Illuminate\Foundation\Testing\RefreshDatabase;
+use Tests\TestCase;
+
+class ExampleTest extends TestCase
+{
+    use RefreshDatabase;
+
+    /** @test */
+    public function it_loads_the_home_page()
+    {
+        $response = $this->get('/');
+
+        $response->assertStatus(200);
+    }
+}

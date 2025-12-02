@@ -1,0 +1,22 @@
+The directory `app/Http/Controllers` is intended to contain controller classes. Since you have not specified any particular controller to create, I will provide a basic example of a controller file that you might typically have in this directory.
+
+Here is the content for a sample controller named `ExampleController.php`:
+
+<?php
+
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+
+class ExampleController extends Controller
+{
+    public function index()
+    {
+        return view('example.index');
+    }
+
+    public function show($id)
+    {
+        return view('example.show', ['id' => $id]);
+    }
+}

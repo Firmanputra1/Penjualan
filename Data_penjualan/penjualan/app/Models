@@ -1,0 +1,5 @@
+The directory `app/Models` is intended to contain Eloquent model classes that interact with the database. Since you have not specified any particular models to create, I will provide a placeholder file indicating that this directory is meant for model classes.
+
+Here are the contents for the file `app/Models/.gitkeep` to ensure the directory is tracked by Git:
+
+// This file is intentionally left blank.

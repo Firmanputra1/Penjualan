@@ -1,0 +1,32 @@
+The `/penjualan/penjualan/database/migrations` directory is intended to contain migration files for creating and modifying database tables. Since you haven't specified any particular migration files to create, I will provide a sample migration file that you can use as a starting point.
+
+Here is the content for a sample migration file named `2023_10_01_000000_create_users_table.php`:
+
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+class CreateUsersTable extends Migration
+{
+    public function up()
+    {
+        Schema::create('users', function (Blueprint $table) {
+            $table->id();
+            $table->string('name');
+            $table->string('email')->unique();
+            $table->timestamp('email_verified_at')->nullable();
+            $table->string('password');
+            $table->rememberToken();
+            $table->timestamps();
+        });
+    }
+
+    public function down()
+    {
+        Schema::dropIfExists('users');
+    }
+}
+
+You can create additional migration files in this directory as needed for your application.

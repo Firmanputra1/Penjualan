@@ -1,0 +1,25 @@
+The `resources/lang` directory is typically used to store language files for localization in a Laravel application. Since you haven't specified any particular language or content, I will create a default English language file named `en.json` for you.
+
+Here are the contents for the file `resources/lang/en.json`:
+
+{
+    "welcome": "Welcome to our application!",
+    "goodbye": "Thank you for visiting!",
+    "error": "An error occurred. Please try again.",
+    "success": "Operation completed successfully.",
+    "login": {
+        "title": "Login",
+        "email": "Email Address",
+        "password": "Password",
+        "remember_me": "Remember Me",
+        "submit": "Login"
+    },
+    "register": {
+        "title": "Register",
+        "name": "Name",
+        "email": "Email Address",
+        "password": "Password",
+        "confirm_password": "Confirm Password",
+        "submit": "Register"
+    }
+}
