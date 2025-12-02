@@ -1,0 +1,44 @@
+# =============================================================================
+# TEMPLATE ENVIRONMENT VARIABLES UNTUK RAILWAY DEPLOYMENT
+# =============================================================================
+# Copy paste ke Railway Dashboard → Variables (Raw Editor Mode)
+# =============================================================================
+
+# APLIKASI
+APP_NAME="Dashboard Penjualan"
+APP_ENV=production
+APP_KEY=base64:RVpCnPv2sLqLcykN+ykgojJKHzbmbe/4zKKAB47sygI=
+APP_DEBUG=false
+APP_URL=https://penjualan-production-f67b.up.railway.app/
+
+# LOGGING
+LOG_CHANNEL=stack
+LOG_LEVEL=error
+
+# DATABASE (PostgreSQL - akan di-inject otomatis oleh Railway)
+DB_CONNECTION=pgsql
+DB_HOST=${{Postgres.PGHOST}}
+DB_PORT=${{Postgres.PGPORT}}
+DB_DATABASE=${{Postgres.PGDATABASE}}
+DB_USERNAME=${{Postgres.PGUSER}}
+DB_PASSWORD=${{Postgres.PGPASSWORD}}
+
+# CACHE & SESSION
+CACHE_DRIVER=file
+SESSION_DRIVER=file
+QUEUE_CONNECTION=sync
+
+# =============================================================================
+# CARA SETUP DI RAILWAY:
+# 1. Buka Railway Dashboard → Project → Laravel Service → Variables
+# 2. Klik "Raw Editor"
+# 3. Copy-paste semua variable di atas
+# 4. Save
+# 5. Redeploy aplikasi
+# =============================================================================
+
+# CATATAN:
+# - APP_KEY sudah di-generate untuk production
+# - APP_URL ganti dengan URL Railway Anda yang sebenarnya
+# - Database variables menggunakan Railway reference syntax ${{Postgres.*}}
+# - Jangan commit file ini ke Git (sudah ada di .gitignore)
