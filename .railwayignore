@@ -1,0 +1,5 @@
+.nixpacks
+vendor
+node_modules
+.git
+

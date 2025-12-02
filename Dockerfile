@@ -1,6 +1,6 @@
 FROM php:8.2-cli
 
-# Install system dependencies
+# Install system dependencies and PHP extensions
 RUN apt-get update && apt-get install -y \
     git \
     curl \
@@ -19,16 +19,22 @@ COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 # Set working directory
 WORKDIR /app
 
-# Copy application files
-COPY . .
+# Copy composer files first for better caching
+COPY composer.json composer.lock ./
 
 # Install dependencies
 RUN composer install --no-dev --optimize-autoloader --no-interaction --prefer-dist
 
-# Cache configuration
-RUN php artisan config:cache && \
-    php artisan route:cache && \
-    php artisan view:cache
+# Copy application files
+COPY . .
+
+# Set permissions
+RUN chmod -R 755 storage bootstrap/cache
+
+# Cache configuration (only if .env exists, will be set by Railway)
+RUN php artisan config:cache || true && \
+    php artisan route:cache || true && \
+    php artisan view:cache || true
 
 # Expose port
 EXPOSE $PORT
