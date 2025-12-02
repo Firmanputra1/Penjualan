@@ -32,7 +32,8 @@ RUN composer install --no-dev --optimize-autoloader --no-interaction --prefer-di
 COPY . .
 
 # Run composer scripts now that all files are present
-RUN composer dump-autoload --optimize --no-dev
+RUN composer dump-autoload --optimize --no-dev && \
+    php artisan package:discover --ansi || true
 
 # Set permissions
 RUN chmod -R 755 storage bootstrap/cache
